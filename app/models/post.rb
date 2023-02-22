@@ -11,4 +11,12 @@ class Post < ApplicationRecord
   has_many :likers, through: :likes, source: :user
   # retrieve all users who have commented on a post
   has_many :commenters, through: :comments, source: :user
+
+  def update_comment_counter
+    update(comment_counter: comments.count)
+  end
+
+  def update_likes_counter
+    update(likes_counter: likes.count)
+  end
 end
