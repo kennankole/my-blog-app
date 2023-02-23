@@ -1,7 +1,6 @@
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.describe User, type: :model do
-
   describe 'associations' do
     it { should have_many(:likes).class_name('Like') }
     it { should have_many(:posts).class_name('Post') }
@@ -10,10 +9,22 @@ RSpec.describe User, type: :model do
 
   describe '#recent_posts' do
     let!(:user) { User.create!(name: 'Anko', photo: 'url/https', post_counter: 0) }
-    let!(:post1) { Post.create!(user: user, created_at: 1.day.ago , title: 'Post1', text: 'Hello world', comment_counter: 0, likes_counter: 0) }
-    let!(:post2) { Post.create!(user: user, created_at: 2.days.ago, title: 'Post2', text: 'Hello world', comment_counter: 0, likes_counter: 0) }
-    let!(:post3) { Post.create!(user: user, created_at: 3.days.ago, title: 'Post3', text: 'Hello world', comment_counter: 0, likes_counter: 0) }
-    let!(:post4) { Post.create!(user: user, created_at: 4.days.ago, title: 'Post4', text: 'Hello world', comment_counter: 0, likes_counter: 0) }
+    let!(:post1) do
+      Post.create!(user:, created_at: 1.day.ago, title: 'Post1', text: 'Hello world', comment_counter: 0,
+                   likes_counter: 0)
+    end
+    let!(:post2) do
+      Post.create!(user:, created_at: 2.days.ago, title: 'Post2', text: 'Hello world', comment_counter: 0,
+                   likes_counter: 0)
+    end
+    let!(:post3) do
+      Post.create!(user:, created_at: 3.days.ago, title: 'Post3', text: 'Hello world', comment_counter: 0,
+                   likes_counter: 0)
+    end
+    let!(:post4) do
+      Post.create!(user:, created_at: 4.days.ago, title: 'Post4', text: 'Hello world', comment_counter: 0,
+                   likes_counter: 0)
+    end
 
     it 'returns the three most recent posts' do
       recent_posts = user.recent_posts
@@ -25,17 +36,29 @@ RSpec.describe User, type: :model do
 
   describe '#recent_comments' do
     let!(:user) { User.create!(name: 'Anko', photo: 'url/https', post_counter: 0) }
-    let!(:post1) { Post.create!(user: user, created_at: 1.day.ago , title: 'Post1', text: 'Hello world', comment_counter: 0, likes_counter: 0) }
-    let!(:post2) { Post.create!(user: user, created_at: 2.days.ago, title: 'Post2', text: 'Hello world', comment_counter: 0, likes_counter: 0) }
-    let!(:post3) { Post.create!(user: user, created_at: 3.days.ago, title: 'Post3', text: 'Hello world', comment_counter: 0, likes_counter: 0) }
-    let!(:post4) { Post.create!(user: user, created_at: 4.days.ago, title: 'Post4', text: 'Hello world', comment_counter: 0, likes_counter: 0) }
+    let!(:post1) do
+      Post.create!(user:, created_at: 1.day.ago, title: 'Post1', text: 'Hello world', comment_counter: 0,
+                   likes_counter: 0)
+    end
+    let!(:post2) do
+      Post.create!(user:, created_at: 2.days.ago, title: 'Post2', text: 'Hello world', comment_counter: 0,
+                   likes_counter: 0)
+    end
+    let!(:post3) do
+      Post.create!(user:, created_at: 3.days.ago, title: 'Post3', text: 'Hello world', comment_counter: 0,
+                   likes_counter: 0)
+    end
+    let!(:post4) do
+      Post.create!(user:, created_at: 4.days.ago, title: 'Post4', text: 'Hello world', comment_counter: 0,
+                   likes_counter: 0)
+    end
 
-    let!(:comment1) { Comment.create!(user: user, created_at: 1.day.ago , post: post1, text: 'Hello world') }
-    let!(:comment2) { Comment.create!(user: user, created_at: 2.days.ago, post: post2, text: 'Hello world') }
-    let!(:comment3) { Comment.create!(user: user, created_at: 3.days.ago, post: post3, text: 'Hello world') }
-    let!(:comment4) { Comment.create!(user: user, created_at: 4.days.ago, post: post4, text: 'Hello world') }
-    let!(:comment5) { Comment.create!(user: user, created_at: 5.days.ago, post: post3, text: 'Hello world') }
-    let!(:comment6) { Comment.create!(user: user, created_at: 6.days.ago, post: post4, text: 'Hello world') }
+    let!(:comment1) { Comment.create!(user:, created_at: 1.day.ago, post: post1, text: 'Hello world') }
+    let!(:comment2) { Comment.create!(user:, created_at: 2.days.ago, post: post2, text: 'Hello world') }
+    let!(:comment3) { Comment.create!(user:, created_at: 3.days.ago, post: post3, text: 'Hello world') }
+    let!(:comment4) { Comment.create!(user:, created_at: 4.days.ago, post: post4, text: 'Hello world') }
+    let!(:comment5) { Comment.create!(user:, created_at: 5.days.ago, post: post3, text: 'Hello world') }
+    let!(:comment6) { Comment.create!(user:, created_at: 6.days.ago, post: post4, text: 'Hello world') }
 
     it 'returns the three most recent posts' do
       recent_comments = user.recent_comments
@@ -51,4 +74,3 @@ RSpec.describe User, type: :model do
     end
   end
 end
-

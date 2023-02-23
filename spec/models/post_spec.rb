@@ -1,13 +1,15 @@
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  subject(:post) { described_class.new(
-    title: 'Sample post', text: 'Hello poeple',
-    comment_counter: 0, likes_counter: 0
-  )}
+  subject(:post) do
+    described_class.new(
+      title: 'Sample post', text: 'Hello poeple',
+      comment_counter: 0, likes_counter: 0
+    )
+  end
 
   let(:user) { User.create(name: 'Anko', photo: 'url/https') }
-  let(:comment) { Comment.create(text: 'Lorem ipsum', post: post, user: user) }
+  let(:comment) { Comment.create(text: 'Lorem ipsum', post:, user:) }
 
   describe 'associations' do
     it { should belong_to(:user).class_name('User') }
