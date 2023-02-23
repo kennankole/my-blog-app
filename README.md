@@ -27,9 +27,6 @@ After you're finished please remove all the comments and instructions!
 
 <div align="center">
   <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. -->
-
-  <h3><b>Microverse README Template</b></h3>
-
 </div>
 
 <!-- TABLE OF CONTENTS -->
@@ -57,12 +54,9 @@ After you're finished please remove all the comments and instructions!
 - [📝 License](#license)
 
 <!-- PROJECT DESCRIPTION -->
+# 📖 [My Blog] <a name="about-project"></a>
 
-# 📖 [School Library] <a name="about-project"></a>
-
-> Describe your project in 1 or 2 sentences.
-
-**[Blog-app]** is a blog application for creating new blog posts and allows for users to comment and like the favorite blog posts 
+**[Blog-app]** is a blog application for creating new blog posts and allows for users to comment and like their favorite blog posts 
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
@@ -84,8 +78,9 @@ After you're finished please remove all the comments and instructions!
 
 ### Key Features <a name="key-features"></a>
 
-- **[Create Blog]**
-- **[Like/comment/share a blog post]**
+- **[Create Blog post]**
+- **[Like a blog post]**
+- **[Comment on a blog post]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -96,8 +91,6 @@ After you're finished please remove all the comments and instructions!
 <!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
-
-> Describe how a new developer could make use of your project.
 
 To get a local copy up and running, follow these steps.
 
@@ -140,18 +133,14 @@ To run the project, execute the following command:
 To run tests, run the following command:
 
 ```sh
-  bin/rails test test/models/article_test.rb
+  rspec spec/models/
 ```
-### Deployment
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
 
 ## 👥 Authors <a name="authors"></a>
-
-> Mention all of the collaborators of this project.
 
 👤 **Kennankole**
 
@@ -165,9 +154,7 @@ To run tests, run the following command:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-> Describe 1 - 3 features you will add to the project.
-
-- [ ] **[Update a blog post]**
+- [ ] **[Sharing a blog post]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -201,9 +188,10 @@ I would like to thank the Microverse tutorials
 
 ## ❓ FAQ (OPTIONAL) <a name="faq"></a>
 
-- **[Can I clone the repo]**
+- **[Can I Push to this repo]**
 
-  - [Yes]
+  - [No! Create an issue instead to help improve the project]
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -213,6 +201,5 @@ I would like to thank the Microverse tutorials
 
 This project is [MIT](./MIT.md) licensed.
 
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
