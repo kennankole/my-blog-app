@@ -6,14 +6,14 @@ class Post < ApplicationRecord
 
   has_many :comments
   has_many :likes
-  belongs_to :user
+  belongs_to :author, class_name: 'User'
   # retrieve all users who have like a post
   has_many :likers, through: :likes, source: :user
   # retrieve all users who have commented on a post
   has_many :commenters, through: :comments, source: :user
 
   def update_post_counter
-    user.increment!(:post_counter)
+    author.increment!(:post_counter)
   end
 
   def recent_comments

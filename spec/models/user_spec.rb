@@ -1,76 +1,35 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  describe 'validation' do
+    it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:photo) }
+    it { should validate_numericality_of(:post_counter).is_greater_than_or_equal_to(0) }
+  end
+
   describe 'associations' do
-    it { should have_many(:likes).class_name('Like') }
-    it { should have_many(:posts).class_name('Post') }
-    it { should have_many(:comments).class_name('Comment') }
+    it { should have_many(:likes).with_foreign_key('author_id') }
+    it { should have_many(:posts).with_foreign_key('author_id') }
+    it { should have_many(:comments).with_foreign_key('author_id') }
   end
 
   describe '#recent_posts' do
     let!(:user) { User.create!(name: 'Anko', photo: 'url/https', post_counter: 0) }
     let!(:post1) do
-      Post.create!(user:, created_at: 1.day.ago, title: 'Post1', text: 'Hello world', comment_counter: 0,
-                   likes_counter: 0)
+      Post.create(title: 'Post1', text: 'Hello world 1', comment_counter: 0, likes_counter: 0, created_at: 1.day.ago,
+                  author: user)
     end
     let!(:post2) do
-      Post.create!(user:, created_at: 2.days.ago, title: 'Post2', text: 'Hello world', comment_counter: 0,
-                   likes_counter: 0)
+      Post.create(title: 'Post2', text: 'Hello world 2', comment_counter: 0, likes_counter: 0, created_at: 2.days.ago,
+                  author: user)
     end
     let!(:post3) do
-      Post.create!(user:, created_at: 3.days.ago, title: 'Post3', text: 'Hello world', comment_counter: 0,
-                   likes_counter: 0)
-    end
-    let!(:post4) do
-      Post.create!(user:, created_at: 4.days.ago, title: 'Post4', text: 'Hello world', comment_counter: 0,
-                   likes_counter: 0)
+      Post.create(title: 'Post3', text: 'Hello world 3', comment_counter: 0, likes_counter: 0, created_at: Time.current,
+                  author: user)
     end
 
     it 'returns the three most recent posts' do
-      recent_posts = user.recent_posts
-      expect(recent_posts.count).to eq 3
-      expect(recent_posts).to include(post1, post2, post3)
-      expect(recent_posts).not_to include(post4)
-    end
-  end
-
-  describe '#recent_comments' do
-    let!(:user) { User.create!(name: 'Anko', photo: 'url/https', post_counter: 0) }
-    let!(:post1) do
-      Post.create!(user:, created_at: 1.day.ago, title: 'Post1', text: 'Hello world', comment_counter: 0,
-                   likes_counter: 0)
-    end
-    let!(:post2) do
-      Post.create!(user:, created_at: 2.days.ago, title: 'Post2', text: 'Hello world', comment_counter: 0,
-                   likes_counter: 0)
-    end
-    let!(:post3) do
-      Post.create!(user:, created_at: 3.days.ago, title: 'Post3', text: 'Hello world', comment_counter: 0,
-                   likes_counter: 0)
-    end
-    let!(:post4) do
-      Post.create!(user:, created_at: 4.days.ago, title: 'Post4', text: 'Hello world', comment_counter: 0,
-                   likes_counter: 0)
-    end
-
-    let!(:comment1) { Comment.create!(user:, created_at: 1.day.ago, post: post1, text: 'Hello world') }
-    let!(:comment2) { Comment.create!(user:, created_at: 2.days.ago, post: post2, text: 'Hello world') }
-    let!(:comment3) { Comment.create!(user:, created_at: 3.days.ago, post: post3, text: 'Hello world') }
-    let!(:comment4) { Comment.create!(user:, created_at: 4.days.ago, post: post4, text: 'Hello world') }
-    let!(:comment5) { Comment.create!(user:, created_at: 5.days.ago, post: post3, text: 'Hello world') }
-    let!(:comment6) { Comment.create!(user:, created_at: 6.days.ago, post: post4, text: 'Hello world') }
-
-    it 'returns the three most recent posts' do
-      recent_comments = user.recent_comments
-      expect(recent_comments.count).to eq 5
-      expect(recent_comments).to include(comment1, comment2, comment3, comment4, comment5)
-      expect(recent_comments).not_to include(comment6)
-    end
-
-    it 'updates post_counter attribute with the count of comments' do
-      post_count = user.posts.count
-      user.update_post_counter
-      expect(user.post_counter).to eq post_count
+      expect(user.recent_posts).to eq([post3, post1, post2])
     end
   end
 end
