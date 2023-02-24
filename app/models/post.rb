@@ -12,11 +12,11 @@ class Post < ApplicationRecord
   # retrieve all users who have commented on a post
   has_many :commenters, through: :comments, source: :user
 
-  def update_comment_counter
-    update(comment_counter: comments.count)
+  def update_post_counter
+    user.increment!(:post_counter)
   end
 
-  def update_likes_counter
-    update(likes_counter: likes.count)
+  def recent_comments
+    comments.order(created_at: :desc).limit(5)
   end
 end
