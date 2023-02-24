@@ -8,6 +8,11 @@ AllCops:
     - "Rakefile"
     - "node_modules/**/*"
 
+    # - "tmp/**/*"
+    # - "vendor/**/*"
+    # - ".git/**/*"
+    # - "db/**/*"
+
   DisplayCopNames: true
 
 Layout/LineLength:
@@ -58,3 +63,4 @@ Style/HashTransformKeys:
   Enabled: false
 Style/HashTransformValues:
   Enabled: false
+
