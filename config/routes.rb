@@ -3,8 +3,14 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :users do
-    resources :posts, only: [:index, :show], controller: 'posts'
-  end
   
+  get '/users/:user_id/posts(.:format)', to: 'posts#index'
+  get  '/users/:user_id/posts(.:format)', to:  'posts#index'
+  get  '/users/:user_id/posts/:id(.:format)', to: 'posts#show'
+  get  '/users(.:format)', to: 'users#index'
+  get  '/users/:id(.:format)', to: 'users#show'
+
+  # resources :users do
+  #   resources :posts, only: [:index], controller: 'posts'
+  # end
 end
