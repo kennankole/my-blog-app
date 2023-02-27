@@ -8,10 +8,10 @@ AllCops:
     - "Rakefile"
     - "node_modules/**/*"
 
-    # - "tmp/**/*"
-    # - "vendor/**/*"
-    # - ".git/**/*"
-    # - "db/**/*"
+    - "tmp/**/*"
+    - "vendor/**/*"
+    - ".git/**/*"
+    - "db/**/*"
 
   DisplayCopNames: true
 
