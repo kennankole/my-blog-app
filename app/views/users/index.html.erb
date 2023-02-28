@@ -1,1 +1,23 @@
-<h1>Here is a list of users</h1>
+<%= stylesheet_link_tag ('home') %>
+
+<section class="users-home">
+  <% @users.each do |user| %>
+  <div class="user-main">
+    <div class="photo">
+      photo
+    </div>
+    <div class="name">
+      <ul>
+        <li>
+          Username: <%= user.name %>
+        </li>
+      </ul>
+      <p class="user-activity">
+        <%= user.post_counter? ? "Number of posts: #{user.post_counter}" : "No posts yet" %>
+        <%= link_to "view post", user_path(id: user.id) %>
+      </p>
+    </div>
+    
+  </div>
+  <% end %>
+</section>

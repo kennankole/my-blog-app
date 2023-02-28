@@ -78,6 +78,8 @@ group :test do
   gem 'shoulda-matchers', '~> 5.0'
 end
 
+gem 'sass-rails'
+
 group :development, :test do
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'

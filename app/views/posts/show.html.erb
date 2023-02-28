@@ -1,1 +1,27 @@
-<h1>Blog post</h1>
+<%= stylesheet_link_tag ('home') %>
+
+<section class="blog-section">
+  <div class="blog-post">
+    <div class="post-header">
+    <div class="blog-activity">
+      <div class="post-index">
+        <p> Post #<%= @post.id %> by <%= @user.name %> </p>
+      </div>
+      <div class="post-action">
+        <p>
+          Comments: <%= @post.comment_counter %>
+          Likes: <%= @post.likes_counter %>
+        </p>
+      </div>
+    </div>
+    <div class="blog-body">
+      <p>
+        <%= @post.text %>
+      </p>
+    </div>
+    </div>
+    <div class="blog-comments">
+      <h3><%= @user.name %> : Comments <%= @post.comment_counter %> </h3>
+    </div>
+  </div>
+</section>
