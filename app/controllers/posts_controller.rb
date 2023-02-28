@@ -7,6 +7,5 @@ class PostsController < ApplicationController
   def show
     @user = User.find(params[:user_id])
     @post = @user.posts.find(params[:id])
-    render_404 unless @post
   end
 end
