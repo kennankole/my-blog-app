@@ -1,0 +1,15 @@
+<div class="user-main">
+  <div class="photo">
+    photo
+  </div>
+  <div class="name">
+    <ul>
+      <li>
+        Username: <%= user.name %>
+      </li>
+    </ul>
+    <p class="user-activity">
+      <%= link_to "view post", user_path(id: user.id) %>
+    </p>
+  </div>
+</div>

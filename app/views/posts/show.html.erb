@@ -1,13 +1,11 @@
 <%= stylesheet_link_tag ('home') %>
-
 <section class="blog-section">
   <div class="blog-post">
     <div class="post-header">
-    <div class="blog-activity">
-      <div class="post-index">
-        <p> Post #<%= @post.id %> by <%= @user.name %> </p>
+      <div class="blog-info">
+        <h3> Post #<%= @post.id %> by <%= @user.name %> </h3>
       </div>
-      <div class="post-activity">
+      <div class="blog-activity">
         <p>
           Comments: <%= @post.comment_counter %>
           Likes: <%= @post.likes_counter %>
@@ -19,9 +17,10 @@
         <%= @post.text %>
       </p>
     </div>
-    </div>
-    <div class="blog-comments">
-      <h3><%= @user.name %> : Comments <%= @post.comment_counter %> </h3>
-    </div>
+  </div>
+  <div class="comments post">
+    <% @post.comments.each do |comment| %>
+      <%= render partial: 'post_comment', locals: { comment: comment }%>
+    <% end %>
   </div>
 </section>

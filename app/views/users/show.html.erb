@@ -1,20 +1,7 @@
 <%= stylesheet_link_tag ('home') %>
 <section class="users-home">
-  <div class="user-main">
-    <div class="photo">
-      photo
-    </div>
-    <div class="name">
-      <ul>
-        <li>
-          Username: <%= @user.name %>
-        </li>
-      </ul>
-        <p class="user-activity">
-          <%= link_to "view post", user_path(id: @user.id) %>
-        </p>
-    </div>
-  </div>
+  <%= render partial: 'user_details', locals: { user: @user }%>
+
   <div class="bio">
     <div class="bio-body">
       <h5>Bio</h5>
@@ -25,25 +12,14 @@
   </div>
   
   <div class="post">
-    <% @user.posts.each_with_index do |post, index| %>
-    <div class="post-body">
-      Post#<%= index %>
-      <h3>
-        Post title:
-        <%= post.title %>
-      </h3>
-      <p>
-        <%= post.text %>
-      </p>
-      <div class="post-activity">
-        Comments: <%= post.comment_counter %>,
-        Likes:<%= post.likes_counter %>
-      </div>
-    </div>
+    <% @user.recent_posts.each do |post| %>
+      <%= render partial: 'post_details', locals: { post: post }%>
     <% end %>
   </div>
     <div class="all-posts">
-      <button type="button" class="all-post-btn">See all posts</button>
+      <button type="button" class="all-post-btn">
+        <%= link_to "See all posts", user_posts_path(@user) %>
+      </button>
     </div>
   </div>
 </section>

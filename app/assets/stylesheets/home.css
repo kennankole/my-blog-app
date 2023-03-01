@@ -79,15 +79,18 @@ li {
   padding: 0 5%;
 }
 
-.posts-body,
-.comments {
+.posts-body {
   border: 3px solid rgb(61, 60, 60);
   padding: 5%;
 }
 
 .comments {
-  display: flex;
-  gap: 2%;
+  padding: 2%;
+  margin: 0 3%;
+}
+
+.comments.post {
+  border: 3px solid rgb(61, 60, 60);
 }
 
 .post-activity {
@@ -104,24 +107,29 @@ li {
 }
 
 /* ++++++++++++++++Blog+++++++++++++++ */
+
 .blog-post {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 5%;
+  padding: 2%;
+  margin: 0.5% 3%;
+  border: 3px solid rgb(61, 60, 60);
 }
 
-.post-header,
-.blog-comments {
-  border: 3px solid rgb(61, 60, 60);
+.post-header {
+  display: flex;
   width: 100%;
-  padding: 3%;
 }
 
 .blog-activity {
   display: flex;
   gap: 2%;
+}
+
+.blog-info {
+  flex: 2;
 }
 
 .post-index {
