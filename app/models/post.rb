@@ -4,8 +4,8 @@ class Post < ApplicationRecord
   validates :comment_counter, presence: false, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :likes_counter, presence: false, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
-  has_many :comments
-  has_many :likes
+  has_many :comments, foreign_key: 'post_id', class_name: 'Comment'
+  has_many :likes, foreign_key: 'post_id', class_name: 'Post'
   belongs_to :author, class_name: 'User'
   # retrieve all users who have like a post
   has_many :likers, through: :likes, source: :user

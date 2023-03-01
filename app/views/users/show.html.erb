@@ -1,1 +1,29 @@
-<h1>User's page</h1>
+<%= stylesheet_link_tag ('home') %>
+<section class="users-home">
+  <%= render partial: 'user_details', locals: { user: @user }%>
+
+  <div class="bio">
+    <div class="bio-body">
+      <h5>Bio</h5>
+      <p>
+        <%= @user.bio %>
+      </p>
+    </div>
+  </div>
+  
+  <div class="post">
+    <% @user.recent_posts.each do |post| %>
+    <div class="post-body post-list">
+      <%= render partial: 'post_details', locals: { post: post }%>
+    </div>
+    <% end %> 
+  </div>
+  
+  </div>
+    <div class="all-posts">
+      <button type="button" class="all-post-btn">
+        <%= link_to "See all posts", user_posts_path(@user) %>
+      </button>
+    </div>
+  </div>
+</section>

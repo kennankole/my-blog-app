@@ -1,1 +1,8 @@
-<h1>Here is a list of users</h1>
+<%= stylesheet_link_tag ('home') %>
+
+<section class="users-home">
+  <% @users.each do |user| %>
+  <%= render partial: 'user_details', locals: {user: user}%>
+  <% end %>
+  
+</section>

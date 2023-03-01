@@ -1,1 +1,20 @@
-<h1>Here is a list of all posts</h1>
+<%= stylesheet_link_tag ('home') %>
+
+<section class="post-section">
+  <%= render partial: 'users/user_details', locals: { user: @user} %>
+  <div class="post-list">
+  
+  <% @user.recent_posts.each do |post| %>
+  <div class="post-body post-list">
+    <%= render partial: 'users/post_details', locals: { post: post} %>
+    </div>
+    <%= render partial: 'comments', locals: { post: post } %>
+  <% end %>
+
+  </div>
+ 
+  <div class="posts-pages">
+    <button type="button" class="pagination-btn">Pagination</button>
+  </div>
+  </div>
+</section>

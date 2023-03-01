@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+}
+
+.user-main {
+  display: flex;
+  padding: 5%;
+  gap: 2%;
+}
+
+.photo {
+  border: 3px solid rgb(61, 60, 60);
+  border-radius: 4px;
+  width: 30%;
+  padding: 5%;
+}
+
+.name {
+  border: 3px solid rgb(61, 60, 60);
+  width: 100%;
+  border-radius: 4px;
+  font-size: 23px;
+  padding: 5% 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+.user-activity {
+  font-size: 15px;
+  text-align: end;
+  padding-right: 5%;
+}
+
+/* ++++++++++++++++Bio+++++++++++++++++++ */
+.bio {
+  display: flex;
+  padding: 0 5%;
+  justify-content: center;
+  align-items: center;
+}
+
+.bio-body {
+  border: 3px solid rgb(61, 60, 60);
+  padding: 3%;
+  width: 100%;
+  font-size: 20px;
+}
+
+/* ++++++++++++Post++++++++++++++++++ */
+.post {
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 2%;
+}
+
+.post-body {
+  border: 3px solid rgb(61, 60, 60);
+  padding: 5%;
+}
+
+.all-posts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 5%;
+}
+
+.all-post-btn,
+.pagination-btn {
+  padding: 12px 14px;
+}
+
+.post-list {
+  display: flex;
+  flex-direction: column;
+  padding: 0 5%;
+}
+
+.posts-body {
+  border: 3px solid rgb(61, 60, 60);
+  padding: 5%;
+}
+
+.comments {
+  padding: 2%;
+  margin: 0 3%;
+}
+
+.comments.post {
+  border: 3px solid rgb(61, 60, 60);
+}
+
+.post-activity {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 3%;
+}
+
+.posts-pages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3%;
+}
+
+/* ++++++++++++++++Blog+++++++++++++++ */
+
+.blog-post {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2%;
+  margin: 0.5% 3%;
+  border: 3px solid rgb(61, 60, 60);
+}
+
+.post-header {
+  display: flex;
+  width: 100%;
+}
+
+.blog-activity {
+  display: flex;
+  gap: 2%;
+}
+
+.blog-info {
+  flex: 2;
+}
+
+.post-index {
+  flex: 2;
+}
+
+.blog-body {
+  padding: 5% 0;
+}
+
+.post-comments {
+  border: 3px solid rgb(61, 60, 60);
+  padding: 4%;
+}
