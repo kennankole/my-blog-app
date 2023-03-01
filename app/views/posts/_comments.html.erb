@@ -1,0 +1,12 @@
+
+<% if post.recent_comments.none? %>
+  <div></div>
+<% else %>
+<div class="post-comments">
+<% post.recent_comments.each do |comment| %>
+  <li><%= comment.author.name %> : <%= comment.text %></li>
+<% end %>
+</div>
+<% end %>
+
+  

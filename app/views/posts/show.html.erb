@@ -19,7 +19,7 @@
     </div>
   </div>
   <div class="comments post">
-    <% @post.comments.each do |comment| %>
+    <% @post.recent_comments.each do |comment| %>
       <%= render partial: 'post_comment', locals: { comment: comment }%>
     <% end %>
   </div>
