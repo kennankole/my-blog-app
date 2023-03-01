@@ -14,13 +14,11 @@
   width: 30%;
   padding: 5%;
 }
+
 .name {
   border: 3px solid rgb(61, 60, 60);
   width: 100%;
   border-radius: 4px;
-}
-
-.name {
   font-size: 23px;
   padding: 5% 0;
 }
@@ -35,7 +33,7 @@ li {
   padding-right: 5%;
 }
 
-/*++++++++++++++++Bio+++++++++++++++++++*/
+/* ++++++++++++++++Bio+++++++++++++++++++ */
 .bio {
   display: flex;
   padding: 0 5%;
@@ -45,11 +43,12 @@ li {
 
 .bio-body {
   border: 3px solid rgb(61, 60, 60);
-  padding: 10%;
+  padding: 3%;
   width: 100%;
+  font-size: 20px;
 }
 
-/*++++++++++++Post++++++++++++++++++*/
+/* ++++++++++++Post++++++++++++++++++ */
 .post {
   padding: 5%;
   display: flex;
@@ -80,10 +79,21 @@ li {
   padding: 0 5%;
 }
 
-.posts-body, 
+.posts-body,
 .comments {
   border: 3px solid rgb(61, 60, 60);
   padding: 5%;
+}
+
+.comments {
+  display: flex;
+  gap: 2%;
+}
+
+.post-activity {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 3%;
 }
 
 .posts-pages {
@@ -93,7 +103,7 @@ li {
   padding: 3%;
 }
 
-/*++++++++++++++++Blog+++++++++++++++*/
+/* ++++++++++++++++Blog+++++++++++++++ */
 .blog-post {
   display: flex;
   justify-content: center;
@@ -102,7 +112,7 @@ li {
   padding: 5%;
 }
 
-.post-header, 
+.post-header,
 .blog-comments {
   border: 3px solid rgb(61, 60, 60);
   width: 100%;

@@ -13,7 +13,6 @@
         </li>
       </ul>
         <p class="user-activity">
-          <%= @user.post_counter? ? "Number of posts: #{@user.post_counter}" : "No posts yet" %>
           <%= link_to "view post", user_path(id: @user.id) %>
         </p>
     </div>
@@ -24,14 +23,14 @@
     <div class="posts-body">
       <h2>Post #<%= index%></h2>
       <p><%= post.text %></p>
-      <li>
+      <div class="post-activity">
         Comments: <%= post.comment_counter %>,
         Likes: <%= post.likes_counter %>
-      </li>
+      </div>
     </div>
     <div class="comments">
       <h3>Username: <%= @user.name %></h3>
-      <h3>Likes:  <%= post.comment_counter %></h3>
+      <h3>Comments:  <%= post.comment_counter %></h3>
     </div>
     <% end %>
     <div class="posts-pages">
