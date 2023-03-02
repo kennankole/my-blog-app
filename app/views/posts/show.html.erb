@@ -18,6 +18,11 @@
       </p>
     </div>
   </div>
+<%= button_to "Like", url_for(action: 'like', controller: 'posts', id: @post.id), method: :put %>
+
+
+
+
   <div class="comments post">
     <% @post.recent_comments.each do |comment| %>
       <%= render partial: 'post_comment', locals: { comment: comment }%>

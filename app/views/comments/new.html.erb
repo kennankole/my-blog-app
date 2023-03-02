@@ -1,0 +1,10 @@
+
+<%= stylesheet_link_tag ('home') %>
+<div class="blog-post">
+  <%= form_with(model: [@comment.post, @comment], url: user_post_comments_path(post_id: @post.id, user_id: current_user.id), local: true) do |form| %>
+    <%= form.label :comment %>
+    <%= form.text_area :text, rows: 10, cols: 40 %>
+
+    <%= form.submit "Post" %>
+  <% end %>
+</div>

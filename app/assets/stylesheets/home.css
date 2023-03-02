@@ -144,3 +144,44 @@ li {
   border: 3px solid rgb(61, 60, 60);
   padding: 4%;
 }
+
+
+/* +++++++++++Comment Form++++++++++++ */
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 3%;
+  border-radius: 4px;
+  margin: 4%;
+  justify-content: center;
+}
+
+textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type='submit'] {
+  width: 30%;
+  padding: 2%;
+}
+
+input[type='text'] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button[type='submit'] {
+  align-self: flex-start;
+  padding: 12px 20px;
+}
