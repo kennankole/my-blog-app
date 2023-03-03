@@ -1,0 +1,16 @@
+<%= stylesheet_link_tag ('home') %>
+<div class="blog-post">
+  <div class="comment-form">
+    <%= form_with(model: current_user.posts.build, url: user_posts_path(current_user), local: true) do |f| %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+
+      <%= f.label :body %>
+      <%= f.text_area :text, rows: 10, cols: 40 %>
+
+      <%= f.submit "Create Post" %>
+    <% end %>
+  </div>
+</div>
