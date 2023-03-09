@@ -3,7 +3,7 @@
   <div class="blog-post">
     <div class="post-header">
       <div class="blog-info">
-        <h3> Post #<%= @post.id %> by <%= @user.name %> </h3>
+        <h3> Post#<%= @post.id %> by <%= @user.name %> </h3>
       </div>
       <div class="blog-activity">
         <p>
@@ -13,6 +13,7 @@
       </div>
     </div>
     <div class="blog-body">
+      <h2>Title: <%= @post.title %> </h2>
       <p>
         <%= @post.text %>
       </p>
