@@ -7,7 +7,7 @@ class Post < ApplicationRecord
                             numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   has_many :comments, foreign_key: 'post_id', class_name: 'Comment'
-  has_many :likes, foreign_key: 'post_id', class_name: 'Post'
+  has_many :likes, foreign_key: 'post_id', class_name: 'Like'
   belongs_to :author, class_name: 'User'
   # retrieve all users who have like a post
   has_many :likers, through: :likes, source: :user
