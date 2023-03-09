@@ -89,3 +89,5 @@ group :development, :test do
   gem 'draft'
 
 end
+
+gem "tailwindcss-rails", "~> 2.0"
