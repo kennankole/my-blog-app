@@ -1,7 +1,9 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user
+  before_action :authenticate_user!, :configure_permitted_parameters, if: :devise_controller?
+  before_action :store_user_location!, if: :storable_location?
+  protected
 
-  def current_user
-    @current_user ||= User.first
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
 end
