@@ -38,5 +38,6 @@ RSpec.describe "users#index" do
   it 'should redirect to the users#show page' do
     click_link 'Alice'
     expect(page).to have_current_path user_path(@user1.id)
+    expect(page).to have_content(@user1.bio)
   end
 end
