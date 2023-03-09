@@ -80,6 +80,8 @@ end
 
 gem 'sass-rails'
 
+gem 'cancancan'
+
 group :development, :test do
   gem 'devise'
   gem 'draft'
