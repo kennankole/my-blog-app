@@ -2,7 +2,7 @@
 <%= stylesheet_link_tag 'registration' %>
 <section class="user-registration">
 <div class="reg-container">
-  <h2 class="reg-header">Sign up</h2>
+  <h3 class="reg-header">Sign up</h3>
   <div class="sign-up-form">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
