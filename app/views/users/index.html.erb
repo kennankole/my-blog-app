@@ -4,5 +4,12 @@
   <% @users.each do |user| %>
   <%= render partial: 'user_details', locals: {user: user}%>
   <% end %>
+
+  <% if user_signed_in? %>
+    <%= current_user.name %>
+    <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+  <% else %>
+    <%= link_to "Login", user_session_path, method: :post %>
+  <% end %>
   
 </section>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
+  root to: 'users#index'
+  devise_for :users, controllers: { confirmations: 'confirmations' } 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
