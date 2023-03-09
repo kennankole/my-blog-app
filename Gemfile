@@ -85,4 +85,7 @@ group :development, :test do
   gem 'launchy'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
+  gem 'devise'
+  gem 'draft'
+
 end
