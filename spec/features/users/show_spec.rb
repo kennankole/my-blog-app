@@ -1,17 +1,16 @@
 require 'rails_helper'
 
-RSpec.feature "User show page" do
-
-  let!(:user) { User.create!(name: 'Alice', bio: 'Maths teacher', photo: "https://source.unsplash.com/user/c_v_r/1900x800", post_counter: 0) }
+RSpec.feature 'User show page' do
+  let!(:user) { User.create!(name: 'Alice', bio: 'Maths teacher', photo: 'https://source.unsplash.com/user/c_v_r/1900x800', post_counter: 0) }
   let!(:posts) do
     [
       Post.create(author: user, title: 'Hello there mate1', text: 'This is my first blog post'),
       Post.create(author: user, title: 'Hello there mate2', text: 'This is my second blog post'),
       Post.create(author: user, title: 'Hello there mate3', text: 'This is my third blog post'),
       Post.create(author: user, title: 'Hello there mate4', text: 'This is my fourth blog post'),
-      Post.create(author: user, title: 'Hello there mate5', text: 'This is my fifth  blog post'),
+      Post.create(author: user, title: 'Hello there mate5', text: 'This is my fifth  blog post')
     ]
-  end 
+  end
 
   scenario 'User interaction on the profile' do
     visit user_path(user)

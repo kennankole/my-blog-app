@@ -1,14 +1,16 @@
-require "rails_helper"
+require 'rails_helper'
 
-RSpec.describe "users#index" do
+RSpec.describe 'users#index' do
   before :each do
-    @user1 = User.create!(name: 'Alice', bio: 'Maths teacher', photo: "https://source.unsplash.com/user/c_v_r/1900x800", post_counter: 0)
-    @user2 = User.create!(name: 'Bob', bio: 'Computer science lecturer', photo: "https://source.unsplash.com/user/c_v_r/100x100", post_counter: 0) 
-    
-    user1 = Post.create!(author: @user1, title: 'Hello there', text: 'This is my first post')
-    user2 = Post.create!(author: @user2, title: 'Hello there', text: 'This is my first Blog post')
-    user3 = Post.create!(author: @user1, title: 'Hello mate', text: 'This is my second blog post')
-    user4 = Post.create!(author: @user2, title: 'Hello there mate', text: 'This is my second blog post')
+    @user1 = User.create!(name: 'Alice', bio: 'Maths teacher',
+                          photo: 'https://source.unsplash.com/user/c_v_r/1900x800', post_counter: 0)
+    @user2 = User.create!(name: 'Bob', bio: 'Computer science lecturer',
+                          photo: 'https://source.unsplash.com/user/c_v_r/100x100', post_counter: 0)
+
+    Post.create!(author: @user1, title: 'Hello there', text: 'This is my first post')
+    Post.create!(author: @user2, title: 'Hello there', text: 'This is my first Blog post')
+    Post.create!(author: @user1, title: 'Hello mate', text: 'This is my second blog post')
+    Post.create!(author: @user2, title: 'Hello there mate', text: 'This is my second blog post')
 
     visit users_path
   end

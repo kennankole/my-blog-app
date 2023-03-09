@@ -1,15 +1,16 @@
 require 'rails_helper'
 
+# rubocop:disable Metrics/BlockLength
 RSpec.feature 'Posts show page' do
-  let!(:user) { User.create!(name: 'Alice', bio: 'Maths teacher', photo: "https://source.unsplash.com/user/c_v_r/1900x800", post_counter: 0) }
-  let!(:user2) { User.create!(name: 'Bob', bio: 'Computer science lecturer', photo: "https://source.unsplash.com/user/c_v_r/100x100", post_counter: 0) }
+  let!(:user) { User.create!(name: 'Alice', bio: 'Maths teacher', photo: 'https://source.unsplash.com/user/c_v_r/1900x800', post_counter: 0) }
+  let!(:user2) { User.create!(name: 'Bob', bio: 'Computer science lecturer', photo: 'https://source.unsplash.com/user/c_v_r/100x100', post_counter: 0) }
   let!(:posts) do
     [
       Post.create(author: user, title: 'Hello there mate1', text: 'This is my first blog post'),
       Post.create(author: user, title: 'Hello there mate2', text: 'This is my second blog post'),
       Post.create(author: user, title: 'Hello there mate3', text: 'This is my third blog post'),
       Post.create(author: user, title: 'Hello there mate4', text: 'This is my fourth blog post'),
-      Post.create(author: user, title: 'Hello there mate5', text: 'This is my fifth  blog post'),
+      Post.create(author: user, title: 'Hello there mate5', text: 'This is my fifth  blog post')
     ]
   end
   let!(:comments) do
@@ -23,7 +24,7 @@ RSpec.feature 'Posts show page' do
       Comment.create(author: user2, post: posts.first, text: 'Congrats!')
     ]
   end
-  
+
   before :each do
     visit user_post_path(posts.first.author, posts.first)
   end
@@ -36,12 +37,13 @@ RSpec.feature 'Posts show page' do
   end
 
   scenario 'User can like a post' do
-    expect(page).to have_content("Likes: 0")
+    expect(page).to have_content('Likes: 0')
     click_button 'Like'
-    expect(page).to have_content("Likes: 1")
+    expect(page).to have_content('Likes: 1')
   end
 
   scenario 'Post Author can see the commentors name and comment left' do
     expect(page).to have_content("#{comments.author.name} : #{Post.first.text}")
   end
 end
+# rubocop:enable Metrics/BlockLength
