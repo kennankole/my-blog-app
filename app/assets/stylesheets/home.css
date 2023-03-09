@@ -2,6 +2,10 @@
   margin: 0;
 }
 
+.post-body-text a {
+  text-decoration: none;
+  color: black;
+}
 .user-main {
   display: flex;
   padding: 5%;
