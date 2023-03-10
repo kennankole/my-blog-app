@@ -9,9 +9,9 @@ class Post < ApplicationRecord
   has_many :comments, foreign_key: 'post_id', class_name: 'Comment'
   has_many :likes, foreign_key: 'post_id', class_name: 'Like'
   belongs_to :author, class_name: 'User'
-  
+
   has_many :likers, through: :likes, source: :user
-  
+
   has_many :commenters, through: :comments, source: :user
 
   before_create :set_defaults

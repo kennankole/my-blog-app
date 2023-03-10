@@ -7,7 +7,6 @@ class User < ApplicationRecord
   validates :photo, presence: false
   validates :post_counter, presence: false
 
-
   has_many :comments, foreign_key: 'author_id', class_name: 'Comment'
   has_many :likes, foreign_key: 'author_id', class_name: 'Like'
   has_many :posts, foreign_key: 'author_id', class_name: 'Post'
