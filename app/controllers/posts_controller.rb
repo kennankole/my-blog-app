@@ -12,11 +12,16 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = current_user.posts.build
+    if user_signed_in?
+      @post = current_user.posts.build
+    else
+      redirect_to new_user_session_path, notice: "Please sign in to create a post"
+    end
   end
 
   def create
     @post = current_user.posts.build(post_params)
+    authorize! :create, @post
     if @post.save
       redirect_to url_for(controller: 'users', action: 'index')
     else
