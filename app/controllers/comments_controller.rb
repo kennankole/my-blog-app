@@ -1,19 +1,31 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource
   def create
-    @post = current_user.posts.find(params[:id])
-    @comment = @post.comments.build(comment_params)
+    @comment = Comment.new(comment_params)
     @comment.author = current_user
+    @comment.post = Post.find(params[:post_id])
+
     if @comment.save
-      redirect_to post_path(@comment.post)
+      redirect_to user_post_path(@comment.post.author, @comment.post)
     else
-      head :no_content
-      puts @comment.errors.full_messages
+      render :new
     end
   end
 
   def new
-    @post = Post.find(params[:post_id])
     @comment = Comment.new
+    @post = Post.find(params[:post_id])
+    @user = @post.author
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    if @comment.destroy
+      redirect_to user_posts_path(user_id: @comment.author_id), notice: "Post deleted successfully"
+    else
+      puts @comments.errors.full_messages
+      redirect_to user_posts_path, notice: 'There was an error in deleting the post'
+    end
   end
 
   private

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show, :create] do
     resources :posts, only: [:new, :show, :index, :create, :destroy] do
-      resources :comments, only: [:new, :create]
+      resources :comments, only: [:new, :create, :destroy]
       member do
         put "like", to: "posts#like"
         delete "unlike", to: "likes#destroy"
@@ -20,8 +20,8 @@ Rails.application.routes.draw do
     member do
       get "like", to: "posts#like", as: :like_post
       get "unlike", to: "posts#unlike", as: :unlike_post
-      # delete "remove", to: "posts#destroy"
     end
   end
   delete "posts/:id/remove", to: "posts#destroy", as: "remove_post"
+  delete "users/:id/posts/:id/comments/:id/remove", to: "comments#destroy", as: "remove_comment"
 end
