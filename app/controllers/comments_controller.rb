@@ -5,17 +5,23 @@ class CommentsController < ApplicationController
     @comment.author = current_user
     @comment.post = Post.find(params[:post_id])
 
+    authorize! :create, @comment
     if @comment.save
       redirect_to user_post_path(@comment.post.author, @comment.post)
     else
+      puts @comment.errors.full_messages
       render :new
     end
   end
 
   def new
-    @comment = Comment.new
-    @post = Post.find(params[:post_id])
-    @user = @post.author
+    if user_signed_in?
+      @comment = Comment.new
+      @post = Post.find(params[:post_id])
+      @user = @post.author
+    else
+      redirect_to new_user_session_path, notice: 'Please log in to leave a comment'
+    end
   end
 
   def destroy
