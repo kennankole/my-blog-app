@@ -19,6 +19,8 @@ RSpec.describe Comment, type: :model do
     let!(:comment) { Comment.create(post:, author: user, text: 'Hi Tom!') }
 
     it 'increments the comment counter' do
+      post.update(comment_counter: 0)
+      post.comment_counter
       expect { comment.update_comment_counter }.to change { post.reload.comment_counter }.from(0).to(1)
     end
   end

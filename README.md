@@ -56,7 +56,7 @@ After you're finished please remove all the comments and instructions!
 <!-- PROJECT DESCRIPTION -->
 # 📖 [My Blog] <a name="about-project"></a>
 
-**[Blog-app]** is a blog application for creating new blog posts and allows for users to comment and like their favorite blog posts 
+**Blog-app** is a blog application for creating new blog posts and allows for users to comment, like or delete blog posts 
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>

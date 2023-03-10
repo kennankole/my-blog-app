@@ -80,8 +80,13 @@ end
 
 gem 'sass-rails'
 
+gem 'cancancan'
+
 group :development, :test do
+  gem 'devise'
+  gem 'draft'
   gem 'factory_bot_rails'
+  gem 'launchy'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
 end

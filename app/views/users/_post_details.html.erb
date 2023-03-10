@@ -1,9 +1,14 @@
 <div>
   <h3>Post#<%= post.id %></h3> 
   <br>
-  <h4>Post Title: <%= post.title%></h4>
+  <h4>Post Titlee: <%= post.title%></h4>
    <br>
-   <p><%= post.text %></p>
+
+   <div class="post-body-text">
+      <p>
+        <%= link_to post.text, user_post_path(post.author, post) %>
+      </p>
+   </div>
   <div class="post-activity comments">
     Comments: <%= post.comment_counter %>,
     Likes:<%= post.likes_counter %>

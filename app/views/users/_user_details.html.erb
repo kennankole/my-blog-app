@@ -1,15 +1,19 @@
 <div class="user-main">
   <div class="photo">
-    photo
+  <% if user.photo %>
+    <%= image_tag user.photo %>
+  <% else %> 
+    <%= user.photo %>
+  <% end %>
   </div>
   <div class="name">
-    <ul>
-      <li>
-        Username: <%= user.name %>
-      </li>
-    </ul>
+    <h3>
+      Username: <%= user.name %>
+    </h3>
+    <p> Number of posts: <%= user.posts.count %>
+
     <p class="user-activity">
-      <%= link_to "view post", user_path(id: user.id) %>
+      <%= link_to user.name, user_path(id: user.id) %>
     </p>
   </div>
 </div>

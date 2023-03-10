@@ -1,3 +1,8 @@
 <div>
   <%= comment.author.name %> : <%= comment.text %></p>
 </div>
+<% if can?(:destroy, comment) %>
+  <td><%= button_to 'Delete Comment', remove_comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<% else %>
+  <p>Just a regular user?</p>
+<% end %>
