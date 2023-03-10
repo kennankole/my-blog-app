@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: 'users#index'
-  devise_for :users, controllers: { confirmations: 'users/confirmations' } 
+  devise_for :users, controllers: { confirmations: 'confirmations' } 
 
   resources :users, only: [:index, :show, :create] do
     resources :posts, only: [:new, :show, :index, :create, :destroy] do
@@ -23,25 +23,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :users, only: [:index] do
-      resources :posts, only: [:index]
-      end
-    end
-  end
-
-  namespace :api do
-    namespace :v1 do
-      resources :users, only: [:index] do
-      resources :comments, only: [:index]
-      end
-    end
-  end
-
-  namespace :api do
-    namespace :v1 do
-      resources :users, only: [:index] do
-        resources :posts, only: [:index, :show] do
-          resources :comments, only: [:create]
+      resources :users do
+        resources :posts do
+          resources :comments
         end
       end
     end
