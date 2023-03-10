@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'users#index'
   
-  devise_for :users, controllers: { confirmations: 'users/confirmations' } 
+  devise_for :users, controllers: { confirmations: 'confirmations' } 
 
   resources :users, only: [:index, :show, :create] do
     resources :posts, only: [:new, :show, :index, :create] do
