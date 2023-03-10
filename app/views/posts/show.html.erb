@@ -17,6 +17,11 @@
       <p>
         <%= @post.text %>
       </p>
+      <% if can?(:destroy, @post) %>
+        <td><%= button_to 'Delete post', remove_post_path(@post), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% else %>
+      <p>Just a regular user?</p>
+      <% end %>
     </div>
   </div>
   <%= button_to "Like", url_for(action: 'like', controller: 'posts', id: @post.id), method: :put %>
@@ -27,3 +32,5 @@
     <% end %>
   </div>
 </section>
+
+
