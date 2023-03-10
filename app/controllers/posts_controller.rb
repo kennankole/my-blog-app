@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   load_and_authorize_resource
- 
+
   def index
     @user = User.find(params[:user_id])
     @posts = @user.posts
@@ -35,7 +35,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     if @post.destroy
-      redirect_to user_posts_path(user_id: @post.author_id), notice: "Post deleted successfully"
+      redirect_to user_posts_path(user_id: @post.author_id), notice: 'Post deleted successfully'
     else
       puts @posts.errors.full_messages
       redirect_to user_posts_path, notice: 'There was an error in deleting the post'

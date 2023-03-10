@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Ability
   include CanCan::Ability
 
@@ -32,8 +30,9 @@ class Ability
     can :read, Post
 
     return unless user.present?
+
     can :read, Post, author: user
-  
+
     user ||= User.new
 
     if user.role == 'admin'
