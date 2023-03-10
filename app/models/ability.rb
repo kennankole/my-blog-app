@@ -14,8 +14,8 @@ class Ability
     if user.role == 'admin'
       can :manage, :all
     else
-      can [:update, :destroy], Post, author_id: user.id
-      can [:create, :destroy], Comment, post: { author_id: user.id }
+      can %i[update destroy], Post, author_id: user.id
+      can %i[create destroy], Comment, post: { author_id: user.id }
     end
   end
 end

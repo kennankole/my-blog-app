@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
       @post = Post.find(params[:post_id])
       @user = @post.author
     else
-      redirect_to new_user_session_path, notice: "Please log in to leave a comment"
+      redirect_to new_user_session_path, notice: 'Please log in to leave a comment'
     end
   end
 

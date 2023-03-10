@@ -15,7 +15,7 @@ class PostsController < ApplicationController
     if user_signed_in?
       @post = current_user.posts.build
     else
-      redirect_to new_user_session_path, notice: "Please sign in to create a post"
+      redirect_to new_user_session_path, notice: 'Please sign in to create a post'
     end
   end
 
