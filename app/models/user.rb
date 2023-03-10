@@ -19,10 +19,4 @@ class User < ApplicationRecord
   def recent_posts
     posts.order(created_at: :desc).limit(3)
   end
-
-  def password_match?
-    errors[:password] << 'must be provided' if password.blank?
-    errors[:password] << 'and confirmation do not match' if password != password_confirmation
-    password == password_confirmation and !password.blank?
-  end
 end
