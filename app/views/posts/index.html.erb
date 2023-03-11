@@ -3,7 +3,7 @@
 <section class="post-section">
   <%= render partial: 'users/user_details', locals: { user: @user} %>
   <div class="post-list">
-    <% @user.posts.includes(:comments).each do |post| %>
+    <% @posts.each do |post| %>
     <div class="post-body post-list">
       <%= render partial: 'users/post_details', locals: { post: post} %>
     </div>
