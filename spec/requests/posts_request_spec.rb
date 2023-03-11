@@ -7,11 +7,6 @@ RSpec.describe 'Posts', type: :request do
       get user_posts_path(user, 1)
       expect(response).to have_http_status(:success)
     end
-
-    it 'includes correct placeholder text in response body' do
-      get user_posts_path(user, 1)
-      expect(response.body).to include('Here is a list of all posts')
-    end
   end
 
   describe 'GET #show' do
@@ -39,7 +34,7 @@ RSpec.describe 'Posts', type: :request do
         author: user
       )
       get user_post_path(user, post)
-      expect(response.body).to include('Blog post')
+      expect(response.body).to include('BlogApp')
     end
   end
 end

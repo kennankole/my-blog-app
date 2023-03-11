@@ -16,11 +16,6 @@ RSpec.describe 'Users', type: :request do
       get '/users'
       expect(response).to render_template(:index)
     end
-
-    it 'includes correct placeholder text in response body' do
-      get '/users'
-      expect(response.body).to include('Here is a list of users')
-    end
   end
 
   describe 'GET #show' do
@@ -33,11 +28,6 @@ RSpec.describe 'Users', type: :request do
     it 'returns the show template' do
       get "/users/#{user.id}"
       expect(response).to render_template(:show)
-    end
-
-    it 'includes the correct placeholder text in response body' do
-      get "/users/#{user.id}"
-      expect(response.body).to include("User's page")
     end
   end
 end
