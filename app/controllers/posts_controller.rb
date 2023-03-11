@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
+
   def index
     @user = User.find(params[:user_id])
     @posts = @user.posts
@@ -10,11 +12,16 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = current_user.posts.build
+    if user_signed_in?
+      @post = current_user.posts.build
+    else
+      redirect_to new_user_session_path, notice: 'Please sign in to create a post'
+    end
   end
 
   def create
     @post = current_user.posts.build(post_params)
+    authorize! :create, @post
     if @post.save
       redirect_to url_for(controller: 'users', action: 'index')
     else
@@ -28,6 +35,16 @@ class PostsController < ApplicationController
     @like = Like.find_or_create_by(author: current_user, post: @post)
     @like.update_likes_counter
     redirect_to url_for(controller: 'posts', action: 'show', id: @post.id)
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    if @post.destroy
+      redirect_to user_posts_path(user_id: @post.author_id), notice: 'Post deleted successfully'
+    else
+      puts @posts.errors.full_messages
+      redirect_to user_posts_path, notice: 'There was an error in deleting the post'
+    end
   end
 
   private
