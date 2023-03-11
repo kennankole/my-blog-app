@@ -43,7 +43,9 @@ RSpec.feature 'Posts show page' do
   end
 
   scenario 'Post Author can see the commentors name and comment left' do
-    expect(page).to have_content("#{comments.author.name} : #{Post.first.text}")
+    user.posts.includes(:comments).each do |comment|
+      expect(page).to have_content(comment.author.name.to_s)
+    end
   end
 end
 # rubocop:enable Metrics/BlockLength

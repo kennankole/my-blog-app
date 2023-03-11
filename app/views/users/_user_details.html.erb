@@ -1,7 +1,7 @@
 <div class="user-main">
   <div class="photo">
   <% if user.photo %>
-    <%= image_tag user.photo %>
+    <img src="<%= user.photo %>" alt="Alt text for the image">
   <% else %> 
     <%= user.photo %>
   <% end %>
