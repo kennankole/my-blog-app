@@ -123,14 +123,10 @@ Install this project with:
 ```
 ### Usage
 
-To run the project, execute the following command:
-
 ```sh
   rails server
 ```
 ### Run tests
-
-To run tests, run the following command:
 
 ```sh
   rspec spec/models/
@@ -189,15 +185,6 @@ If you like this project kindly give it a ⭐️
 I would like to thank the Microverse tutorials
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- FAQ (optional) -->
-
-## ❓ FAQ (OPTIONAL) <a name="faq"></a>
-
-- **[Can I Push to this repo]**
-
-  - [No! Create an issue instead to help improve the project]
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
